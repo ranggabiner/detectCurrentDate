@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import Combine
 
-func getCurrentDateString() -> String {
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        return dateFormatter.string(from: currentDate)
-    }
+class DateManager: ObservableObject {
+    @Published var currentDate: String = ""
+
+    func getCurrentDateString() -> String {
+            let currentDate = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            return dateFormatter.string(from: currentDate)
+        }
+}

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    let currentDate = getCurrentDateString()
+    @StateObject private var currentDate = DateManager()
 
     var body: some View {
         VStack {
-            Text("Today: \(currentDate)")        }
+            Text("Today: \(currentDate.getCurrentDateString())")        }
         .padding()
     }
 }
